@@ -2,7 +2,7 @@ import React from 'react'
 
 const SideNavbar = () => {
   return (
-    <div className='flex flex-col gap-3  p-2  bg-white'>
+    <div className='flex flex-col gap-3 p-2 bg-white'>
       <h2 className='uppercase font-bold'>Analytics Dashboard</h2>
       <div className='flex justify-between gap-2'>
         <label htmlFor="lastMonth">Last Month</label>

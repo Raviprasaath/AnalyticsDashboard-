@@ -22,7 +22,6 @@ ChartJS.register(
 );
 
 export const options = {
-  responsive: true,
   plugins: {
     legend: {
       position: 'top',
@@ -32,6 +31,7 @@ export const options = {
       text: 'Chart.js Bar Chart',
     },
   },
+  maintainAspectRatio : false
 };
 
 const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
@@ -58,8 +58,8 @@ const BottomBoxChart = () => {
     <>
     <div className='flex flex-col'>
       <h2 className='uppercase font-bold my-2'>Latest Orders</h2>
-      <div className='h-[400px] bg-white'>
-        <Bar className='h-[400px]' options={options} data={data} />
+      <div className='w-[90vw] md:w-[65vw] lg:w-[40vw] xl:w-[38vw] 2xl:w-[40vw] h-[50vh] bg-white'>
+        <Bar options={options} data={data} />
       </div>
     </div>
     </>

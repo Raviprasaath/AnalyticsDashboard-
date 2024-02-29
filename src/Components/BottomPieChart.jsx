@@ -4,7 +4,7 @@ import { Doughnut } from 'react-chartjs-2';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const data = {
+const data = {
   labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
   datasets: [
     {
@@ -33,12 +33,16 @@ export const data = {
 
 const BottomPieChart = () => {
   return (
-    <div>
+    <>
+    <div className='flex flex-col'>
       <h2 className='uppercase font-bold my-2'>Sales Details</h2>
-      <div className='h-[400px] bg-white'>
-        <Doughnut data={data} className='h-[400px]' />
+      <div className='flex flex-col justify-center items-center'>
+        <div className='flex justify-center items-center bg-white w-[90vw] md:w-[65vw] lg:w-[40vw] xl:w-[38vw] 2xl:w-[35vw] h-[50vh] '>
+          <Doughnut data={data} />
+        </div>
       </div>
     </div>
+    </>
   )
 }
 

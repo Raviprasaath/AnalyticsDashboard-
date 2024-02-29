@@ -1,5 +1,6 @@
-import React from 'react'
-
+import React from 'react';
+import { Line } from 'react-chartjs-2';
+import useScreenSize from '../Helper/useScreenSize';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,7 +11,6 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
 
 ChartJS.register(
   CategoryScale,
@@ -23,7 +23,7 @@ ChartJS.register(
 );
 
 const options = {
-  responsive: true,
+  
   plugins: {
     legend: {
       position: 'top',
@@ -33,15 +33,11 @@ const options = {
       text: 'Chart.js Line Chart',
     },
   },
-
+  maintainAspectRatio : false,
 };
 
-
-
-
 const labels = [
-  'January', 'February', 'March', 'April', 'May', 'June',
-  'July', 'August', 'September', 'October', 'November', 'December'
+  'January', 'March','May', 'July', 'September', 'November', 'December'
 ];
 
 const data = {
@@ -59,18 +55,20 @@ const data = {
       borderColor: 'rgb(53, 162, 235)',
       backgroundColor: 'rgba(53, 162, 235, 0.5)',
     },
+    
   ],
 };
 
 const MainChart = () => {
+
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col max-w-screen-sm'>
       <h2 className='uppercase font-bold my-2'>Total Revenue</h2>
-      <div className='h-[400px] bg-white'>
-        <Line options={options} data={data}  className='h-[400px] ' />
+      <div className={`bg-white w-[90vw] md:w-[65vw] lg:w-[40vw] xl:w-[38vw] 2xl:w-[40vw] h-[50vh]`}>
+        <Line options={options} data={data}  />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MainChart
+export default MainChart;
