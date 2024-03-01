@@ -1,6 +1,5 @@
 import React from 'react';
 import { Line } from 'react-chartjs-2';
-import useScreenSize from '../Helper/useScreenSize';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -37,7 +36,8 @@ const options = {
 };
 
 const labels = [
-  'January', 'March','May', 'July', 'September', 'November', 'December'
+  'January', 'February', 'March', 'April', 'May', 'June',
+  'July', 'August', 'September', 'October', 'November', 'December'
 ];
 
 const data = {

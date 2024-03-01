@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import BottomBoxChart from "./Components/BottomBoxChart"
 import BottomPieChart from "./Components/BottomPieChart"
 import MainChart from "./Components/MainChart"
@@ -13,7 +13,9 @@ import { toggleNavbar } from "./Slice/helperSlice"
 function App() {
   const screenSize = useScreenSize();
   const dispatch = useDispatch();
-  const { navbarToggler } = useSelector(state=>state.helperReducer);
+  const { navbarToggler, filteredItems } = useSelector(state=>state.helperReducer);
+
+  console.log(filteredItems);
 
   const handlerToggle = () => {
     dispatch(toggleNavbar(false));
@@ -23,6 +25,7 @@ function App() {
     if (screenSize >= 900) {
       dispatch(toggleNavbar(false));
     }
+
   }, [screenSize])
 
   return (
