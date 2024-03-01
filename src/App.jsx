@@ -7,15 +7,14 @@ import SideNavbar from "./Components/SideNavbar"
 import TopNavbar from "./Components/TopNavbar"
 import useScreenSize from "./Helper/useScreenSize"
 import { useDispatch, useSelector } from "react-redux"
-import { toggleNavbar } from "./Slice/helperSlice"
+import { getDataFetch, toggleNavbar } from "./Slice/helperSlice"
 
 
 function App() {
   const screenSize = useScreenSize();
   const dispatch = useDispatch();
-  const { navbarToggler, filteredItems } = useSelector(state=>state.helperReducer);
+  const { navbarToggler, filteredItems, fetchedData } = useSelector(state=>state.helperReducer);
 
-  console.log(filteredItems);
 
   const handlerToggle = () => {
     dispatch(toggleNavbar(false));
@@ -25,8 +24,11 @@ function App() {
     if (screenSize >= 900) {
       dispatch(toggleNavbar(false));
     }
-
   }, [screenSize])
+
+  useEffect(()=> {
+    dispatch(getDataFetch());
+  }, [])
 
   return (
     <>
@@ -45,7 +47,7 @@ function App() {
           }
           {screenSize >= 900 &&
             <div className={`p-4 h-dvh bg-gray-200 fixed w-[250px] }`}>
-              <SideNavbar/>
+              <SideNavbar />
             </div>
           }
           <div className={`flex flex-col gap-4 bg-gray-100  w-full px-4 ${screenSize > 900 ? "ml-[250px]":""}`}>

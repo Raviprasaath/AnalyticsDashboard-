@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { filterSelections } from '../Slice/helperSlice';
 
 const SideNavbar = () => {
-  const [filterSelection, setFilterSelection] = useState(["currentYear"]);
+  const [filterSelection, setFilterSelection] = useState(["lastMonth"]);
 
   const dispatch = useDispatch();
 
@@ -62,7 +62,7 @@ const SideNavbar = () => {
   const handlerOrderByWarehouse = (e) => {
     const selectedValue = e.target.value;
     let dummy = filterSelection.filter(item => item !== selectedValue);
-    const otherOrderTypes = ["bengaluru", "chennai", "mumbai", "delhi", "gujarat"];
+    const otherOrderTypes = ["bangalore", "chennai", "mumbai", "delhi", "gujarat"];
     dummy = dummy.filter(item => !otherOrderTypes.includes(item));
     dummy.push(selectedValue);
     const nullUnSelector = dummy.filter(item => item !== "null");
@@ -79,16 +79,16 @@ const SideNavbar = () => {
       <h2 className='uppercase font-bold'>Analytics Dashboard</h2>
       <div className='flex justify-between gap-2'>
         <label htmlFor="lastMonth">Last Month</label>
-        <input type="radio" id="lastMonth" name="typeOfPeriod" value="lastMonth" onChange={handlerSelectPeriod} />
+        <input type="radio" defaultChecked={true} id="lastMonth" name="typeOfPeriod" value="lastMonth" onChange={handlerSelectPeriod} />
       </div>
-      <div className='flex justify-between gap-2'>
+      {/* <div className='flex justify-between gap-2'>
         <label htmlFor="lastQuarter">Last Quarter</label>
         <input type="radio" id="lastQuarter" name="typeOfPeriod" value="lastQuarter" onChange={handlerSelectPeriod} />
       </div>
       <div className='flex justify-between gap-2'>
         <label htmlFor="currentYear">Current Year</label>
         <input type="radio" defaultChecked={true} id="currentYear" name="typeOfPeriod" value="currentYear" onChange={handlerSelectPeriod} />
-      </div>
+      </div> */}
 
       <div className='flex flex-col border-b-2'>
         <label>Order Channel</label>
@@ -113,7 +113,7 @@ const SideNavbar = () => {
         <label>Warehouses</label>
         <select onChange={handlerOrderByWarehouse}>
           <option value="null">None Selected</option>
-          <option value="bengaluru">Bengaluru</option>
+          <option value="bangalore">Bangalore</option>
           <option value="chennai">Chennai</option>
           <option value="mumbai">Mumbai </option>
           <option value="delhi">Delhi</option>
