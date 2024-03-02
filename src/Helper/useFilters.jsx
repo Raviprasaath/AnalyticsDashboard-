@@ -15,7 +15,7 @@ const useFilters = () => {
     const [topSoldProduct, setTopSoldProduct] = useState();
     const [totalRevenue, setTotalRevenue] = useState();
 
-    
+    console.log(filteredItems)
     
     useEffect(() => {
       let time = setTimeout(()=> {

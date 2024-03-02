@@ -26,7 +26,7 @@ const TopNavbar = () => {
           )}
           <h2 className="uppercase font-bold py-2">Monthly Data</h2>
         </div>
-        <div className="flex gap-4 flex-wrap bg-white p-4 justify-center my-10">
+        <div className="flex gap-4 flex-wrap bg-white p-4 justify-center mt-10">
           <div
             className={` ${
               screenSize < 900

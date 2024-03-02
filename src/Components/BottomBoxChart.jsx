@@ -73,12 +73,12 @@ const BottomBoxChart = () => {
     labels,
     datasets: [
       {
-        label: 'Dataset 1',
+        label: 'Expected Sale',
         data: dataArray1,
         backgroundColor: 'rgba(255, 99, 132, 0.5)',
       },
       {
-        label: 'Dataset 2',
+        label: 'Actual Sale',
         data: dataArray2,
         backgroundColor: 'rgba(53, 162, 235, 0.5)',
       },

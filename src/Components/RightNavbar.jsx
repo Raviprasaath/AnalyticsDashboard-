@@ -59,7 +59,7 @@ const RightNavbar = () => {
     <>
     <div className='flex flex-col max-w-screen-sm'>
       <h2 className='uppercase font-bold my-2'>Top Sold Products</h2>
-      <div className='bg-white flex flex-col justify-center items-center w-[90vw] md:w-[65vw] lg:w-[40vw] xl:w-[38vw] 2xl:w-[35vw] h-[50vh]'>
+      <div className='bg-white flex flex-col justify-center items-center w-[90vw] md:w-[65vw] lg:w-[40vw] xl:w-[38vw] 2xl:w-[35vw] h-[40vh]'>
         <PolarArea data={data} />
       </div>
     </div>

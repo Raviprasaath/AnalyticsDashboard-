@@ -74,7 +74,7 @@ const MainChart = () => {
   return (
     <div className='flex flex-col max-w-screen-sm'>
       <h2 className='uppercase font-bold my-2'>Total Revenue</h2>
-      <div className={`bg-white w-[90vw] md:w-[65vw] lg:w-[40vw] xl:w-[38vw] 2xl:w-[40vw] h-[50vh]`}>
+      <div className={`bg-white w-[90vw] md:w-[65vw] lg:w-[40vw] xl:w-[38vw] 2xl:w-[40vw] h-[40vh]`}>
         <Line options={options} data={data}  />
       </div>
     </div>

@@ -19,6 +19,7 @@ function App() {
     dispatch(toggleNavbar(false));
   }
   
+  
   useEffect(()=> {
     if (screenSize >= 900) {
       dispatch(toggleNavbar(false));
@@ -49,7 +50,7 @@ function App() {
               <SideNavbar />
             </div>
           }
-          <div className={`flex flex-col bg-gray-100  w-full ${screenSize > 900 ? "ml-[250px]":""}`}>
+          <div className={`flex flex-col pb-20 bg-gray-100  w-full ${screenSize > 900 ? "ml-[250px]":""}`}>
             <TopNavbar />
             <div className="flex flex-wrap gap-2 justify-around items-center">
               <MainChart />
