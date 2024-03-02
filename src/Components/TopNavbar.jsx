@@ -17,8 +17,8 @@ const TopNavbar = () => {
 
   return (
     <>
-      <div className=" flex flex-col justify-center">
-        <div className="flex items-center gap-4">
+      <div className=" flex flex-col justify-center relative">
+        <div className="flex items-center gap-4 px-2 fixed top-0 bg-white w-full z-1">
           {screenSize < 900 && (
             <p onClick={handlerToggler} className="cursor-pointer">
               <FaBars />
@@ -26,7 +26,7 @@ const TopNavbar = () => {
           )}
           <h2 className="uppercase font-bold py-2">Monthly Data</h2>
         </div>
-        <div className="flex gap-4 flex-wrap bg-white p-4 justify-center">
+        <div className="flex gap-4 flex-wrap bg-white p-4 justify-center my-10">
           <div
             className={` ${
               screenSize < 900

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import BottomBoxChart from "./Components/BottomBoxChart"
 import BottomPieChart from "./Components/BottomPieChart"
 import MainChart from "./Components/MainChart"
@@ -13,8 +13,7 @@ import { getDataFetch, toggleNavbar } from "./Slice/helperSlice"
 function App() {
   const screenSize = useScreenSize();
   const dispatch = useDispatch();
-  const { navbarToggler, filteredItems, fetchedData } = useSelector(state=>state.helperReducer);
-
+  const { navbarToggler } = useSelector(state=>state.helperReducer);
 
   const handlerToggle = () => {
     dispatch(toggleNavbar(false));
@@ -35,7 +34,7 @@ function App() {
         <div className="flex gap-4">
           { screenSize < 900 && navbarToggler.payload && 
             <>
-              <div className="fixed top-0 flex">
+              <div className="fixed top-0 flex z-10">
                 <div className={`p-4 h-dvh w-[250px] bg-slate-200  }`}>
                   <SideNavbar/>
                 </div>
@@ -50,7 +49,7 @@ function App() {
               <SideNavbar />
             </div>
           }
-          <div className={`flex flex-col gap-4 bg-gray-100  w-full px-4 ${screenSize > 900 ? "ml-[250px]":""}`}>
+          <div className={`flex flex-col bg-gray-100  w-full ${screenSize > 900 ? "ml-[250px]":""}`}>
             <TopNavbar />
             <div className="flex flex-wrap gap-2 justify-around items-center">
               <MainChart />
@@ -66,4 +65,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

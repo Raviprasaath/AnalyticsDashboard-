@@ -18,9 +18,6 @@ const useFilters = () => {
     
     
     useEffect(() => {
-        console.log(fetchedData)
-        console.log(filteredItems)
-
       let time = setTimeout(()=> {
         if (filteredItems?.includes("lastMonth") && filteredItems?.length === 1) {
           const storeTotalSales = Object?.values(fetchedData?.lastMonth?.store)
@@ -251,8 +248,7 @@ const useFilters = () => {
             let total1 = Object.values(dataSplit1).reduce((acc, city) => acc + city.totalSales, 0);
             let total2 = Object.values(dataSplit2).reduce((acc, city) => acc + city.totalSales, 0);
             setTotalsSales(total1+total2);
-            
-            console.log("failed combo");
+
 
             let total3 = Object.values(dataSplit1).reduce((acc, city) => acc + city.totalEarnings, 0);
             let total4 = Object.values(dataSplit2).reduce((acc, city) => acc + city.totalEarnings, 0);

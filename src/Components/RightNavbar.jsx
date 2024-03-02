@@ -14,13 +14,34 @@ ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
 const RightNavbar = () => {
   const { topSoldProduct } = useFilters();
-  console.log(topSoldProduct)
+  let dataMerge;
+  let labelArray = [];
+  let dataArray = [];
+
+  let randomNumber = Math.floor(Math.random()*5 );
+
+  if (topSoldProduct) {
+    if (topSoldProduct.length === 10 ){
+      dataMerge = topSoldProduct[randomNumber];
+    } else if (topSoldProduct.length === 5) {
+      dataMerge = topSoldProduct[0];
+    } else {
+      dataMerge = topSoldProduct;
+    }
+  }  
+  
+  for (let i in dataMerge) {
+    labelArray.push(i);
+    dataArray.push(dataMerge[i]);
+  }
+
+  
   const data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: labelArray,
     datasets: [
       {
         label: '# of Votes',
-        data: [7, 5, 5, 5, 2, 3],
+        data: dataArray,
         backgroundColor: [
           'rgba(255, 99, 132, 0.5)',
           'rgba(54, 162, 235, 0.5)',

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { filterSelections } from '../Slice/helperSlice';
 
@@ -77,7 +77,7 @@ const SideNavbar = () => {
   return (
     <div className='flex flex-col gap-3 p-2 bg-white'>
       <h2 className='uppercase font-bold'>Analytics Dashboard</h2>
-      <div className='flex justify-between gap-2'>
+      <div className='flex justify-between gap-2 hidden'>
         <label htmlFor="lastMonth">Last Month</label>
         <input type="radio" defaultChecked={true} id="lastMonth" name="typeOfPeriod" value="lastMonth" onChange={handlerSelectPeriod} />
       </div>
@@ -124,4 +124,4 @@ const SideNavbar = () => {
   )
 }
 
-export default SideNavbar
+export default SideNavbar;

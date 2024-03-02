@@ -28,7 +28,7 @@ const options = {
     },
     title: {
       display: true,
-      text: 'Chart.js Line Chart',
+      text: 'X-Days and Y-Value',
     },
   },
   maintainAspectRatio : false,

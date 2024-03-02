@@ -10,6 +10,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import useFilters from '../Helper/useFilters';
 
 
 ChartJS.register(
@@ -28,32 +29,62 @@ const options = {
     },
     title: {
       display: true,
-      text: 'Chart.js Bar Chart',
+      text: 'X-Products and Y-Value',
     },
   },
   maintainAspectRatio : false
 };
 
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-const data = {
-  labels,
-  datasets: [
-    {
-      label: 'Dataset 1',
-      data: [1, 2, 3, 4, 5, 6, 8, 5, 8, 2, 7, 9],
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-    },
-    {
-      label: 'Dataset 2',
-      data: [2, 7, 9, 5, 4, 2, 3, 12, 4, 5, 6, 10],
-      backgroundColor: 'rgba(53, 162, 235, 0.5)',
-    },
-  ],
-};
-
 
 const BottomBoxChart = () => {
+
+  const { latestOrder } = useFilters();
+  
+  let dataMerge;
+  let labelArray = [];
+  let dataArray1 = [];
+  let dataArray2 = [];
+
+  let randomNumber = Math.floor(Math.random()*5 );
+
+  if (latestOrder) {
+    if (latestOrder.length === 10 ){
+      dataMerge = latestOrder[randomNumber];
+    } else if (latestOrder.length === 8) {
+      dataMerge = latestOrder;
+    } else if (latestOrder.length === 5) {
+      dataMerge = latestOrder[0];
+    } else {
+      dataMerge = latestOrder;
+    }
+  }
+
+
+  
+  for (let i in dataMerge) {
+    labelArray.push(dataMerge[i].product);
+    dataArray1.push(dataMerge[i].expectedSale);
+    dataArray2.push(dataMerge[i].actualSale);
+  }
+
+  const labels = labelArray;
+
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Dataset 1',
+        data: dataArray1,
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+      {
+        label: 'Dataset 2',
+        data: dataArray2,
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      },
+    ],
+  };
+
   return (
     <>
     <div className='flex flex-col'>
