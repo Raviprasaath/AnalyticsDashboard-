@@ -11,7 +11,8 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import useFilters from '../Helper/useFilters';
-
+import { Grid } from 'react-loader-spinner';
+import { useLoader } from '../Helper/useLoader';
 
 ChartJS.register(
   CategoryScale,
@@ -84,6 +85,10 @@ const BottomBoxChart = () => {
       },
     ],
   };
+
+  if (!latestOrder) {
+    return useLoader();
+  }
 
   return (
     <>

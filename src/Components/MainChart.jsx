@@ -10,6 +10,7 @@ import {
   Legend,
 } from 'chart.js';
 import useFilters from '../Helper/useFilters';
+import { useLoader } from "../Helper/useLoader";
 
 ChartJS.register(
   CategoryScale,
@@ -70,6 +71,11 @@ const MainChart = () => {
       
     ],
   };
+
+
+  if (!totalRevenue) {
+    return useLoader();
+  }
 
   return (
     <div className='flex flex-col max-w-screen-sm'>

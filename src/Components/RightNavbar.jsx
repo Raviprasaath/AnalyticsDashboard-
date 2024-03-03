@@ -8,6 +8,7 @@ import {
 } from 'chart.js';
 import { PolarArea } from 'react-chartjs-2';
 import useFilters from '../Helper/useFilters';
+import { useLoader } from '../Helper/useLoader';
 
 ChartJS.register(RadialLinearScale, ArcElement, Tooltip, Legend);
 
@@ -34,7 +35,6 @@ const RightNavbar = () => {
     labelArray.push(i);
     dataArray.push(dataMerge[i]);
   }
-
   
   const data = {
     labels: labelArray,
@@ -55,6 +55,11 @@ const RightNavbar = () => {
     ],
   };
   
+  if (!topSoldProduct) {
+    return useLoader();
+  }
+
+
   return (
     <>
     <div className='flex flex-col max-w-screen-sm'>
